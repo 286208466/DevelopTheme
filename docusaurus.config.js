@@ -30,23 +30,23 @@ const config = {
   //   require.resolve('./mySiteGlobalJs.js'),
   //   require.resolve('./mySiteGlobalCss.css'),
   // ],
-  // stylesheets: [
-  //   // String format.
-  //   'https://docusaurus.io/style.css',
-  //   // Object format.
-  //   {
-  //     href: 'http://mydomain.com/style.css',
-  //   },
-  // ],
-  // scripts: [
-  //   // String format.
-  //   "https://docusaurus.io/script.js",
-  //   // Object format.
-  //   {
-  //     src: "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js",
-  //     async: true,
-  //   },
-  // ],
+  stylesheets: [
+    // String format.
+    '../../../Cesium/Widgets/widgets.css',
+    // Object format.
+    // {
+    //   href: 'http://mydomain.com/style.css',
+    // },
+  ],
+  scripts: [
+    // String format.
+    // "../../../Cesium/Cesium.js",
+    // Object format.
+    {
+      src: "../../../Cesium/Cesium.js",
+      async: true,
+    },
+  ],
 
   presets: [
     [
