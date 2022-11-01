@@ -44,7 +44,11 @@ const config = {
     // Object format.
     {
       src: "../../../Cesium/Cesium.js",
-      async: true,
+      // async: true,
+    },
+    {
+      src: "../../../js/BaiDuImageryProvider.js",
+      // async: true,
     },
   ],
 
@@ -70,7 +74,7 @@ const config = {
         theme: {
           customCss: [
             require.resolve("./src/css/custom.css"),
-            require.resolve("./src/css/page.scss"),
+            require.resolve("./src/css/page.css"),
           ],
         },
       }),

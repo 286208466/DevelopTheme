@@ -12,13 +12,12 @@ export default function Home(): JSX.Element {
   useEffect(() => {
     let viewer = initMap();
 
-    var mapbox_street = new Cesium.MapboxImageryProvider({
-      mapId: "mapbox.streets",
-      accessToken:
-        "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA",
-    });
     var layers = viewer.scene.imageryLayers;
-    layers.addImageryProvider(mapbox_street);
+    layers.addImageryProvider(
+      Cesium.createOpenStreetMapImageryProvider({
+        url: "https://a.tile.openstreetmap.org/",
+      })
+    );
   }, []);
 
   return (

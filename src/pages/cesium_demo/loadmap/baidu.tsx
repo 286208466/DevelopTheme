@@ -4,12 +4,18 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import { initMap } from "../common.js";
+
 let Cesium = window.Cesium;
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
   useEffect(() => {
     let viewer = initMap();
+    var img_baidu = new window.BaiDuImageryProvider({
+      layer: "vec",
+    });
+    var layers = viewer.scene.imageryLayers;
+    layers.addImageryProvider(img_baidu);
   }, []);
 
   return (
@@ -17,6 +23,7 @@ export default function Home(): JSX.Element {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
+      <div></div>
       <main className="demoPageContainer">
         <div className="">
           <div className="demoPageLeft"></div>
