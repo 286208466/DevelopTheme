@@ -8,7 +8,10 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "FH",
   tagline: "FH",
-  url: "https://your-docusaurus-test-site.com",
+  url:
+    process.env.BASE === "zone"
+      ? "https://docs.taro.zone"
+      : "https://nervjs.github.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -32,7 +35,7 @@ const config = {
   // ],
   stylesheets: [
     // String format.
-    '../../../Cesium/Widgets/widgets.css',
+    "../../../Cesium/Widgets/widgets.css",
     // Object format.
     // {
     //   href: 'http://mydomain.com/style.css',
@@ -81,28 +84,67 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "docs_cesium",
+        path: "docs_cesium",
+        routeBasePath: "docs_cesium",
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "docs_maptalks",
+        path: "docs_maptalks",
+        routeBasePath: "docs_maptalks",
+        sidebarPath: require.resolve("./sidebars.js"),
+      },
+    ],
+    
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
         title: "FH",
         logo: {
-          alt: "My Site Logo",
+          alt: "FH",
           src: "img/logo.svg",
         },
         items: [
           {
-            type: "doc",
-            docId: "intro",
+            type: "dropdown",
             position: "left",
-            label: "Tutorial",
+            label: "主题",
+            items: [
+              {
+                to: "docs_cesium/overview", // 点击后跳转的链接，站内跳转用 to ,站外用 href
+                activeBasePath: "docs_cesium", // 根据它显示当前高亮
+                label: "Cesium", // 显示的名称
+              },
+              {
+                to: "docs_maptalks/overview", // 点击后跳转的链接，站内跳转用 to ,站外用 href
+                activeBasePath: "docs_maptalks", // 根据它显示当前高亮
+                label: "Maptalks", // 显示的名称
+              },
+            ],
           },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
-          },
+          // {
+          //   type: "doc",
+          //   docId: "intro",
+          //   position: "left",
+          //   label: "Tutorial",
+          // },
+          // { to: "/blog", label: "Blog", position: "left" },
+          // {
+          //   href: "https://github.com/facebook/docusaurus",
+          //   label: "GitHub",
+          //   position: "right",
+          // },
         ],
       },
       footer: {
