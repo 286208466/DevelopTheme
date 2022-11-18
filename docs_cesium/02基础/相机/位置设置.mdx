@@ -1,0 +1,50 @@
+### setView
+
+三维球立即转到对应的视角和位置上。（无延迟）
+
+```js
+viewer.camera.setView({
+  // fromDegrees()方法，将经纬度和高程转换为世界坐标
+  destination: Cesium.Cartesian3.fromDegrees(117.48, 30.67, 15000.0),
+  orientation: {
+    // 指向
+    heading: Cesium.Math.toRadians(90, 0),
+    // 视角
+    pitch: Cesium.Math.toRadians(-90),
+    roll: 0.0,
+  },
+});
+```
+
+```js
+viewer.camera.setView({
+  destination: Cesium.Rectangle.fromDegrees(west, south, east, north),
+  orientation: {
+    heading: headingAngle,
+    pitch: pitchAngle,
+    roll: rollAngle,
+  },
+});
+```
+
+### flyTo
+
+通过转动的动画，三维球转到对应的视角和位置上。（有延迟）
+
+```js
+
+viewer.camera.flyTo({
+    // fromDegrees()方法，将经纬度和高程转换为世界坐标
+    destination:Cesium.Cartesian3.fromDegrees(117.48,30.67,15000.0),
+    orientation:{
+    // 指向
+    heading:Cesium.Math.toRadians(90,0),
+    // 视角
+    pitch:Cesium.Math.toRadians(-90),
+    roll:0.0
+    }
+});
+————————————————
+版权声明：本文为CSDN博主「最凶残的小海豹」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_17627195/article/details/115198373
+```
