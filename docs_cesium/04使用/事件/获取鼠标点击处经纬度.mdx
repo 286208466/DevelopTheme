@@ -15,6 +15,25 @@ handler.setInputAction(function (event) {
   };
   console.log(coordinate);
 }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
+//
+var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+//拾取坐标
+handler.setInputAction((event) => {
+  var earthPosition = viewer.camera.pickEllipsoid(
+    event.position,
+    viewer.scene.globe.ellipsoid
+  );
+  var cartographic = Cesium.Cartographic.fromCartesian(
+    earthPosition,
+    viewer.scene.globe.ellipsoid,
+    new Cesium.Cartographic()
+  );
+  var lat = Cesium.Math.toDegrees(cartographic.latitude);
+  var lng = Cesium.Math.toDegrees(cartographic.longitude);
+  var height = cartographic.height;
+  console.log("经度" + lng + "纬度" + lat);
+}, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 ```
 
 2、获取地表面的点的经纬度（地形上的点）
