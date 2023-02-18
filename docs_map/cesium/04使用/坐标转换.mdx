@@ -58,6 +58,7 @@ var Cartesian3_to_WGS84 = function (point) {
 
 ```js
 //方法一
+//3D模式Cesium屏幕坐标转世界坐标
 var pick1 = new Cesium.Cartesian2(0, 0);
 var cartesian = viewer.scene.globe.pick(
   viewer.camera.getPickRay(pick1),
@@ -66,4 +67,23 @@ var cartesian = viewer.scene.globe.pick(
 
 //方法二
 Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, Cartesian3);
+```
+
+### Cesium 屏幕坐标转世界坐标
+
+3D 模式 Cesium 屏幕坐标转世界坐标
+
+```js
+var pick1 = new Cesium.Cartesian2(0, 0);
+var cartesian = viewer.scene.globe.pick(
+  viewer.camera.getPickRay(pick1),
+  viewer.scene
+);
+```
+
+2D 模式 Cesium 屏幕坐标转世界坐标
+
+```js
+var pick = new Cesium.Cartesian2(0, 0);
+var cartesian = viewer.camera.pickEllipsoid(pick, viewer.scene.globe.ellipsoid);
 ```
