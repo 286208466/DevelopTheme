@@ -88,22 +88,21 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "docs_cesium",
-        path: "docs_cesium",
-        routeBasePath: "docs_cesium",
+        id: "docs_manage",
+        path: "docs_manage",
+        routeBasePath: "docs_manage",
         sidebarPath: require.resolve("./sidebars.js"),
       },
     ],
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "docs_maptalks",
-        path: "docs_maptalks",
-        routeBasePath: "docs_maptalks",
+        id: "docs_dev",
+        path: "docs_dev",
+        routeBasePath: "docs_dev",
         sidebarPath: require.resolve("./sidebars.js"),
       },
     ],
-    
   ],
 
   themeConfig:
@@ -122,14 +121,14 @@ const config = {
             label: "主题",
             items: [
               {
-                to: "docs_cesium/overview", // 点击后跳转的链接，站内跳转用 to ,站外用 href
-                activeBasePath: "docs_cesium", // 根据它显示当前高亮
-                label: "Cesium", // 显示的名称
+                to: "docs_dev/overview", // 点击后跳转的链接，站内跳转用 to ,站外用 href
+                activeBasePath: "docs_dev", // 根据它显示当前高亮
+                label: "开发", // 显示的名称
               },
               {
-                to: "docs_maptalks/overview", // 点击后跳转的链接，站内跳转用 to ,站外用 href
-                activeBasePath: "docs_maptalks", // 根据它显示当前高亮
-                label: "Maptalks", // 显示的名称
+                to: "docs_manage/overview", // 点击后跳转的链接，站内跳转用 to ,站外用 href
+                activeBasePath: "docs_manage", // 根据它显示当前高亮
+                label: "管理", // 显示的名称
               },
             ],
           },
